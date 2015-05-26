@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: MyString
+  shamy_debt: 1
+  andy_debt: 1
+  dom_debt: 1
+  jamie_debt: 1
+  name: MyString
+
+two:
+  owner: MyString
+  shamy_debt: 1
+  andy_debt: 1
+  dom_debt: 1
+  jamie_debt: 1
+  name: MyString
