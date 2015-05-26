@@ -1,4 +1,4 @@
-  
+<h1> Billz, Ya'll </h1>
 <div id="main">
   <table class="ui table">
     <thead>
@@ -15,11 +15,46 @@
       <script type="text/template" id="bill-template">
       <td> {{name}}</td>
       <td> {{owner}}</td>
-      <td> {{dom_debt}}</td>
-      <td> {{shamy_debt}}</td>
-      <td> {{jamie_debt}}</td>
-      <td> {{andy_debt}}</td>
+      <td contenteditable="true"> {{dom_debt}}</td>
+      <td contenteditable="true"> {{shamy_debt}}</td>
+      <td contenteditable="true"> {{jamie_debt}}</td>
+      <td contenteditable="true"> {{andy_debt}}</td>
       </script>
     </tbody>
   </table>
+</div>
+</br>
+<div id="form-container">
+  <h3> Add a Bill </h3>
+  <form class="ui form" id="billform">
+      <div class="field">
+        <label>Bill Info</label>
+        <div class="two fields">
+          <div class="field">
+            <input type="text" id="bill-owner" placeholder="Bill Owner">
+          </div>
+          <div class="field">
+            <input type="text" id="bill-description" placeholder="Bill Description">
+          </div>
+      </div>
+      <div class="field">
+        <label>Amount Owed </label>
+        <div class="four fields">
+          <div class="field">
+            <input type="text" id="dom-owes" placeholder="Dom Owes:">
+          </div>
+          <div class="field">
+            <input type="text" id="andy-owes" placeholder="Andy Owes:">
+          </div>
+          <div class="field">
+            <input type="text" id="jamie-owes" placeholder="Jamie Owes:">
+          </div>
+          <div class="field">
+            <input type="text" id="shamy-owes" placeholder="Shamy Owes:">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui submit button" id="addbill">Add Bill </div>
+  </form>
 </div>
