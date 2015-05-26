@@ -1,13 +1,15 @@
 console.log("app js linked")
 
+//model for a bill
 var Bill = Backbone.Model.extend({
   urlRoot: "/bills"
 })
 
+
+//individual bill views that watch individual models
 var BillView = Backbone.View.extend({
   tagName: 'tr',
   template: $("#bill-template").html(),
-  // template: '<td> {{name}} </td> <td> {{owner}} </td> <td> {{dom_debt}} </td> <td> {{shamy_debt}} </td> <td> {{jamie_debt}} </td> <td> {{andy_debt}} </td>',
   render: function(){
     var html = Mustache.render(this.template, this.model.attributes)
     this.$el.html(html)
@@ -15,6 +17,41 @@ var BillView = Backbone.View.extend({
   }
 })
 
-var b = new Bill({id: 1})
-b.fetch()
-var view = new BillView({model: b})
+
+//collection of models
+var Bills = Backbone.Collection.extend({
+  model: Bill,
+  url: "/bills",
+  addABill: function(){
+    console.log("added a bill!");
+  }
+})
+
+//view that observes collection of models
+var BillsView = Backbone.View.extend({
+  collection: Bills,
+  initialize: function(){
+    this.listenTo(this.collection, 'add', this.collection.addABill);
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var b = new Bill({id: 1})
+// b.fetch()
+// var view = new BillView({model: b})
+
+
+var bills = new Bills()
+var viewz = new BillsView({collection: bills})
