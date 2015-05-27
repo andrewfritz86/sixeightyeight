@@ -10,6 +10,15 @@ $('.ui.form')
         }
       ]
     },
+    drop: {
+      identifier  : 'bill-owner',
+      rules: [
+        {
+          type   : 'empty',
+          prompt: 'Please select an owner'
+        }
+      ]
+    },
     dom: {
       identifier  : 'dom-owes',
       rules: [

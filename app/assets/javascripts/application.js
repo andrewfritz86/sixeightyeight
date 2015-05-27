@@ -13,6 +13,7 @@
 //= require jquery
 //= require form
 //= require validate
+//= require dropdown
 //= require jquery_ujs
 //= require turbolinks
 //= require mustache
