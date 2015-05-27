@@ -28,10 +28,10 @@
   <h3> Add a Bill </h3>
   <form class="ui form" id="billform">
       <div class="field">
-        <label>Bill Owner</label>
         <div class="two fields">
           <div class="field">
-              <select class="ui selection dropdown" id="bill-owner">
+            <select class="ui selection dropdown" id="bill-owner">
+              <option value='' disabled selected style='display:none;'>Who is Owed?</option>
               <option value="Dom">Uncle Shitfeet</option>
               <option value="Shamy">Sweat Twin</option>
               <option value="Jamie">Riff Raff</option>
@@ -43,7 +43,7 @@
           </div>
       </div>
       <div class="field">
-        <label>Amount Owed </label>
+        <label>Amounts Owed </label>
         <div class="four fields">
           <div class="field">
             <input type="text" id="dom-owes" placeholder="Dom Owes:">
@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-    <div class="ui submit button" id="addbill">Add Bill </div>
+    <div class="ui button" id="addbill">Add Bill </div>
   </form>
 </div>
 

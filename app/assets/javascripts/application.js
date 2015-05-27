@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require form
+//= require validate
 //= require jquery_ujs
 //= require turbolinks
 //= require mustache

@@ -45,23 +45,23 @@ var FormView = Backbone.View.extend({
     'click #addbill': 'createBillModel'
   },
   createBillModel: function(event){
-    console.log("yay");
-    var input = {
-      owner: $("#bill-owner").val(),
-      name: $("#bill-description").val(),
-      andy_debt: $("#andy-owes").val(),
-      dom_debt: $("#dom-owes").val(),
-      jamie_debt: $("#jamie-owes").val(),
-      shamy_debt: $("#shamy-owes").val()
+    if($(".ui.form").form('validate form')){
+      var input = {
+        owner: $("#bill-owner").val(),
+        name: $("#bill-description").val(),
+        andy_debt: $("#andy-owes").val(),
+        dom_debt: $("#dom-owes").val(),
+        jamie_debt: $("#jamie-owes").val(),
+        shamy_debt: $("#shamy-owes").val()
+      }
+      $('#billform').trigger("reset");
+      var newModel = new Bill(input);
+      newModel.save();
+      bills.add(newModel);
     }
-    $('#billform').trigger("reset");
-    var newModel = new Bill(input);
-    newModel.save();
-    bills.add(newModel);
   }
 
 })
-
 
 
 
