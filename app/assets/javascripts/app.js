@@ -8,12 +8,23 @@ var Bill = Backbone.Model.extend({
 
 //individual bill views that watch individual models
 var BillView = Backbone.View.extend({
+  events: {
+    'blur td': 'blurred',
+    //listen for an 'input' event on html5 contenteditable areas
+    'input td': 'data'
+  },
   tagName: 'tr',
   template: $("#bill-template").html(),
   render: function(){
     var html = Mustache.render(this.template, this.model.attributes);
     this.$el.html(html);
     $("table").append(this.el);
+  },
+  blurred: function(){
+    console.log("blurred")
+  },
+  data: function(){
+    console.log("data")
   }
 })
 
@@ -39,7 +50,6 @@ var BillsView = Backbone.View.extend({
 
 
 //view to watch the form
-
 var FormView = Backbone.View.extend({
   events: {
     'click #addbill': 'createBillModel'
@@ -66,15 +76,24 @@ var FormView = Backbone.View.extend({
 
 
 
+var app = {
+  bills: new Bills(),
+  makeViews: function(){
+    var viewz = new BillsView({collection: this.bills})
+  },
+  form: new FormView({el: $("#form-container")}),
+  start: function(){
+    this.makeViews()
+    this.bills.fetch()
+  }
+}
 
 
+app.start()
 
 
+// var bills = new Bills()
+// var viewz = new BillsView({collection: bills})
+// bills.fetch()
 
-
-
-var bills = new Bills()
-var viewz = new BillsView({collection: bills})
-bills.fetch()
-
-var f = new FormView({el: $("#form-container")})
+// var f = new FormView({el: $("#form-container")})

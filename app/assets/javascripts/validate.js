@@ -1,4 +1,5 @@
 
+//.form takes an object containing rules for validations, as well as options for the validation
 $('.ui.form')
   .form({
     name: {
@@ -24,7 +25,7 @@ $('.ui.form')
       rules: [
         {
           type   : 'integer',
-          prompt: 'Please enter how much Dom owes'
+          prompt: 'How much does Dom owe?'
         }
       ]
     },
@@ -33,7 +34,7 @@ $('.ui.form')
       rules: [
         {
           type   : 'integer',
-          prompt: 'Please enter how much Andy owes'
+          prompt: 'How much does Andy owe?'
         }
       ]
     },
@@ -42,7 +43,7 @@ $('.ui.form')
       rules: [
         {
           type   : 'integer',
-          prompt: 'Please enter how much Jamie owes'
+          prompt: 'How much does Jamie owe?'
         }
       ]
     },
@@ -51,9 +52,9 @@ $('.ui.form')
       rules: [
         {
           type   : 'integer',
-          prompt: 'Please enter how much Shamy owes'
+          prompt: 'How much does Shamy owe?'
         }
       ]
     }
-  }, {on: 'submit', inline: 'true',})
+  }, {on: 'submit', inline: 'true'})
 ;
