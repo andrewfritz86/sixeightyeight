@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require form
+//= require semantic
 //= require validate
-//= require dropdown
+//= require animateDrop
 //= require jquery_ujs
 //= require turbolinks
 //= require mustache

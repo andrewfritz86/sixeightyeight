@@ -57,4 +57,4 @@ $('.ui.form')
       ]
     }
   }, {on: 'submit', inline: 'true'})
-;
+

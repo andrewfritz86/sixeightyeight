@@ -24,6 +24,7 @@ var BillView = Backbone.View.extend({
     console.log("blurred")
   },
   data: function(){
+    //may have to add a validation here. can just do typeof, but user won't know
     console.log("data")
   }
 })
@@ -73,27 +74,24 @@ var FormView = Backbone.View.extend({
 
 })
 
+var bills = new Bills()
+var billzView = new BillsView({collection: bills})
+var form = new FormView({el: $("#form-container")})
+bills.fetch()
 
 
-
-var app = {
-  bills: new Bills(),
-  makeViews: function(){
-    var viewz = new BillsView({collection: this.bills})
-  },
-  form: new FormView({el: $("#form-container")}),
-  start: function(){
-    this.makeViews()
-    this.bills.fetch()
-  }
-}
-
-
-app.start()
+// var app = {
+//   bills: new Bills(),
+//   makeViews: function(){
+//     var viewz = new BillsView({collection: this.bills})
+//   },
+//   form: new FormView({el: $("#form-container")}),
+//   start: function(){
+//     this.makeViews()
+//     this.bills.fetch()
+//   }
+// }
 
 
-// var bills = new Bills()
-// var viewz = new BillsView({collection: bills})
-// bills.fetch()
+// app.start()
 
-// var f = new FormView({el: $("#form-container")})
