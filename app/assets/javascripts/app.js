@@ -73,9 +73,6 @@ var FormView = Backbone.View.extend({
 
 
 
-
-
-
 var bills = new Bills()
 var viewz = new BillsView({collection: bills})
 bills.fetch()
