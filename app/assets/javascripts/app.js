@@ -36,8 +36,14 @@ var BillView = Backbone.View.extend({
       this.model.set(updateObject)
       this.model.save() 
     }else{
+      var currentText = event.target.textContent;
+      var resetText = event.target.textContent.replace(/\D/g, "");
+      //strip out any non integer, reset content
+      event.target.textContent = resetText;
+      //TODO reset cell value to be what it was before change(maybe regex to delete all non-integers?)
       //setTimeout change background color of cell
       $(event.target).toggleClass("invalid")
+      //change header temporarily
       var header = "<h1 id='warning' class='ui header'> NEEDS TO BE A NUMBER </h1>"
       $("#header").html(header)
       function toggler(){
