@@ -9,7 +9,6 @@ var Bill = Backbone.Model.extend({
 //individual bill views that watch individual models
 var BillView = Backbone.View.extend({
   events: {
-    'blur td': 'blurred',
     //listen for an 'input' event on html5 contenteditable areas
     'input td': 'data'
   },
@@ -20,12 +19,23 @@ var BillView = Backbone.View.extend({
     this.$el.html(html);
     $("table").append(this.el);
   },
-  blurred: function(){
-    console.log("blurred")
-  },
   data: function(){
-    //may have to add a validation here. can just do typeof, but user won't know
-    console.log("data")
+    var value = this.$el.find("#dom-debt").text()
+    // debugger
+    var isnum = /^\d+$/.test(value);
+    //may have to add a validation here. how can we check to make sure what the user entered is a number?
+    if(isnum){
+      var updateObject = {};
+      updateObject.dom_debt = this.$el.find("#dom-debt").text()
+      updateObject.andy_debt = this.$el.find("#andy-debt").text()
+      updateObject.shamy_debt = this.$el.find("#shamy-debt").text()
+      updateObject.jamie_debt = this.$el.find("#jamie-debt").text()
+      this.model.set(updateObject)
+      this.model.save() 
+    }else{
+      console.log("invalid")
+      $("#invalid").append("<h1> INVALID </h1>")
+    }
   }
 })
 

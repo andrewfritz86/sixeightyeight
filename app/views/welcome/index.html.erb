@@ -19,10 +19,10 @@
           <script type="text/template" id="bill-template">
           <td> {{name}}</td>
           <td> {{owner}}</td>
-          <td contenteditable="true"> {{dom_debt}}</td>
-          <td contenteditable="true"> {{shamy_debt}}</td>
-          <td contenteditable="true"> {{jamie_debt}}</td>
-          <td contenteditable="true"> {{andy_debt}}</td>
+          <td contenteditable="true" id="dom-debt"> {{dom_debt}}</td>
+          <td contenteditable="true" id="shamy-debt">{{shamy_debt}}</td>
+          <td contenteditable="true" id="jamie-debt"> {{jamie_debt}}</td>
+          <td contenteditable="true" id="andy-debt"> {{andy_debt}}</td>
           </script>
         </tbody>
       </table>
@@ -67,7 +67,7 @@
         <div class="ui teal button" id="addbill">Add Bill </div>
       </form>
     </div>
-    <div class="three wide column"></div>
+    <div class="three wide column" id="invalid"></div>
   </div>
 </div>
 

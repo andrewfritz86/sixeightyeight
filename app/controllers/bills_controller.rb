@@ -15,6 +15,13 @@ class BillsController < ApplicationController
     render json: bill
   end
 
+  def update
+    bill = Bill.find(params["id"])
+    bill.update(bill_params)
+    render json: bill
+  end
+
+
   private
 
   def bill_params
