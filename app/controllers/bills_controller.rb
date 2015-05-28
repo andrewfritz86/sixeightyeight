@@ -1,7 +1,7 @@
 class BillsController < ApplicationController
 
   def index
-    bills = Bill.all
+    bills = Bill.order(:id)
     render json: bills
   end
 

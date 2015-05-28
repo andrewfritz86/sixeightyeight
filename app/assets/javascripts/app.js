@@ -10,7 +10,7 @@ var Bill = Backbone.Model.extend({
 var BillView = Backbone.View.extend({
   events: {
     //listen for an 'input' event on html5 contenteditable areas
-    'input td': 'data'
+    'blur td': 'data'
   },
   tagName: 'tr',
   template: $("#bill-template").html(),
@@ -19,12 +19,15 @@ var BillView = Backbone.View.extend({
     this.$el.html(html);
     $("table").append(this.el);
   },
-  data: function(){
-    var value = this.$el.find("#dom-debt").text()
-    // debugger
+  data: function(event){
+    //need to run the isnum test on the cell that has been edited
+    //use event.target
+    //strip out spaces, was throwing off the check to see if a number appears
+    var value = event.target.textContent.replace(/\s/g, '');
     var isnum = /^\d+$/.test(value);
-    //may have to add a validation here. how can we check to make sure what the user entered is a number?
+    console.log(isnum)
     if(isnum){
+      console.log('valid')
       var updateObject = {};
       updateObject.dom_debt = this.$el.find("#dom-debt").text()
       updateObject.andy_debt = this.$el.find("#andy-debt").text()
@@ -33,8 +36,15 @@ var BillView = Backbone.View.extend({
       this.model.set(updateObject)
       this.model.save() 
     }else{
-      console.log("invalid")
-      $("#invalid").append("<h1> INVALID </h1>")
+      //setTimeout change background color of cell
+      $(event.target).toggleClass("invalid")
+
+      function toggler(){
+        $(event.target).toggleClass("invalid")
+      }
+
+      setTimeout(toggler,1000)
+
     }
   }
 })
