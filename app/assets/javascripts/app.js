@@ -38,13 +38,13 @@ var BillView = Backbone.View.extend({
     }else{
       //setTimeout change background color of cell
       $(event.target).toggleClass("invalid")
-
+      var header = "<h1 id='warning' class='ui header'> NEEDS TO BE A NUMBER </h1>"
+      $("#header").html(header)
       function toggler(){
         $(event.target).toggleClass("invalid")
+        $("#header").html("<h1 class= 'ui teal header'> 140 10th Billz, Ya'll </h1>")
       }
-
       setTimeout(toggler,1000)
-
     }
   }
 })

@@ -1,4 +1,13 @@
 .invalid{
   color: white;
-  background-color: red
+  background-color: #E64848;
+}
+
+#nar{
+  color:white;
+  background-color: #E64848;
+}
+
+#warning{
+  color: #E64848;
 }

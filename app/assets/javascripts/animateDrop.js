@@ -1,1 +1,1 @@
-$('.ui.dropdown').dropdown({transition: 'horizontal flip'})
+$('.ui.dropdown').dropdown()
