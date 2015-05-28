@@ -2,7 +2,8 @@
 <div class="ui grid">
   <div class="three wide column"></div>
   <div class="ten wide column">
-    <span id="header"> <h1 class= "ui teal header"> 140 10th Billz, Ya'll </h1></span>
+    <span id="header"> <h1 class= "ui teal header animated pulse"> 140 10th Billz, Ya'll </h1></span>
+    </br>
     <div id="main">
       <table class="ui table">
         <thead>
@@ -19,17 +20,17 @@
           <script type="text/template" id="bill-template">
           <td> {{name}}</td>
           <td> {{owner}}</td>
-          <td contenteditable="true" id="dom-debt"> {{dom_debt}}</td>
-          <td contenteditable="true" id="shamy-debt">{{shamy_debt}}</td>
-          <td contenteditable="true" id="jamie-debt"> {{jamie_debt}}</td>
-          <td contenteditable="true" id="andy-debt"> {{andy_debt}}</td>
+          <td contenteditable="true" id="dom-debt" class="debt"> {{dom_debt}}</td>
+          <td contenteditable="true" id="shamy-debt" class="debt">{{shamy_debt}}</td>
+          <td contenteditable="true" id="jamie-debt" class="debt"> {{jamie_debt}}</td>
+          <td contenteditable="true" id="andy-debt" class="debt"> {{andy_debt}}</td>
           </script>
         </tbody>
       </table>
     </div>
     </br>
     <div id="form-container">
-      <h3 class="ui teal header"> Add a Bill </h3>
+      <h3 class="ui teal header animated pulse"> Add a Bill </h3>
       <form class="ui form" id="billform">
           <div class="field">
             <div class="two fields">
@@ -47,7 +48,7 @@
               </div>
           </div>
           <div class="field">
-            <label class="ui teal header">Amounts Owed </label>
+            <label class="ui teal header animated pulse">Amounts Owed </label>
             <div class="four fields">
               <div class="field">
                 <input type="text" id="dom-owes" placeholder="Dom Owes:">

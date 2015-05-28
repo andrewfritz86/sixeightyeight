@@ -11,3 +11,7 @@
 #warning{
   color: #E64848;
 }
+
+.debt:before { 
+  content: '$';
+}
