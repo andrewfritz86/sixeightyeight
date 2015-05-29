@@ -5,7 +5,7 @@
     <span id="header"> <h1 class= "ui teal header animated pulse"> 140 10th Billz, Ya'll </h1></span>
     </br>
     <div id="main">
-      <table class="ui table">
+      <table class="ui table" id="main-table">
         <thead>
           <tr>
             <th> <h5 class="ui blue header"> Bill </h5> </th>
@@ -65,11 +65,69 @@
             </div>
           </div>
         </div>
-        <div class="ui teal button" id="addbill">Add Bill </div>
+        <div class="ui teal basic button" id="addbill">Add Bill </div>
+<div class="4 fluid ui buttons">
+</br>
+<h4> View a Roommaate </h4>
+  <div class="ui blue basic button">Shamy</div>
+  <div class="ui red basic button">Andy</div>
+  <div class="ui orange basic button">Dom</div>
+  <div class="ui purple basic button">Jamie</div>
+
+</div>
       </form>
     </div>
     </div>
-  <div class="six wide column" id="invalid"></div>
+  <div class="six wide column" id="invalid">
+    <div class=" ui grid">
+      <div class="two wide column"> </div>
+      <div class="twelve wide column"> 
+      <h1 class= "ui teal header animated pulse"> Roommate Info </h1>
+        <div class="ui card">
+        <!-- card, will be a script template -->
+        <!-- will need individual attributes for each roomate -->
+          <div class="image">
+            <img src="/shamy.jpeg">
+          </div>
+          <div class="content">
+            <a class="header">Zahed Shamy</a>
+            <div class="meta">
+              <span class="date">Sweat Twin</span>
+            </div>
+            <div class="description">
+              Shamy is an expert at riff-raffing in the garden and making good use of the Gowanus
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="user icon"></i>
+              Total Debt: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="user icon"></i>
+              Owes {{Dom}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="user icon"></i>
+              Owes {{Andy}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="user icon"></i>
+              Owes {{Jamie}}: {{template in later}}
+            </a>
+          </div>
+        </div>
+
+        <!-- end card -->
+      </div>
+    </div>
+  </div>
 </div>
 
 

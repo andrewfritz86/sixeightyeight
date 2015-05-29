@@ -17,7 +17,7 @@ var BillView = Backbone.View.extend({
   render: function(){
     var html = Mustache.render(this.template, this.model.attributes);
     this.$el.html(html);
-    $("table").append(this.el);
+    $("#main-table").append(this.el);
   },
   data: function(event){
     //need to run the isnum test on the cell that has been edited

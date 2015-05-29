@@ -15,3 +15,7 @@
 .debt:before { 
   content: '$';
 }
+
+.image{
+  border-radius: 25px;
+}
