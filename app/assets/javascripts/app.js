@@ -101,24 +101,14 @@ var FormView = Backbone.View.extend({
 
 })
 
+
 var bills = new Bills()
 var billzView = new BillsView({collection: bills})
 var form = new FormView({el: $("#form-container")})
-bills.fetch()
+var promise = bills.fetch()
 
 
-// var app = {
-//   bills: new Bills(),
-//   makeViews: function(){
-//     var viewz = new BillsView({collection: this.bills})
-//   },
-//   form: new FormView({el: $("#form-container")}),
-//   start: function(){
-//     this.makeViews()
-//     this.bills.fetch()
-//   }
-// }
 
 
-// app.start()
+
 

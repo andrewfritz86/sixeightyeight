@@ -2,7 +2,7 @@
 <div class="ui grid">
   <div class="two wide column"></div>
   <div class="eight wide column">
-    <span id="header"> <h1 class= "ui teal header animated pulse"> 140 10th Billz, Ya'll </h1></span>
+    <span id="header"> <a href="/#"><h1 class= "ui teal header animated pulse"> 140 10th Billz, Ya'll </h1></a></span>
     </br>
     <div id="main">
       <table class="ui table" id="main-table">
@@ -70,10 +70,10 @@
       <div class="4 fluid ui buttons">
       </br>
       <h4 class="ui teal header animated pulse"> View a Roommaate </h4>
-        <div class="ui blue basic button">Shamy</div>
-        <div class="ui red basic button">Andy</div>
-        <div class="ui orange basic button">Dom</div>
-        <div class="ui purple basic button">Jamie</div>
+        <div class="ui blue basic button" onclick="location.href='#/shamy'">Shamy</div>
+        <div class="ui red basic button" onclick="location.href='#/andy'">Andy</div>
+        <div class="ui orange basic button" onclick="location.href='#/dom'">Dom</div>
+        <div class="ui purple basic button" onclick="location.href='#/jamie'">Jamie</div>
       </div>
     </div>
     </div>
@@ -82,7 +82,7 @@
       <div class="two wide column"> </div>
       <div class="twelve wide column"> 
       <h1 class= "ui teal header animated pulse"> Roommate Info </h1>
-        <div class="ui card">
+        <div class="ui card" id="bio">
         <!-- card, will be a script template -->
         <!-- will need individual attributes for each roomate -->
           <div class="image">
