@@ -67,22 +67,22 @@
         </div>
         <div class="ui teal basic button" id="addbill">Add Bill </div>
       </form>
-      <div class="4 fluid ui buttons">
+      <div class="4 fluid ui buttons" id="link-bar">
       </br>
       <h4 class="ui teal header animated pulse"> View a Roommaate </h4>
-        <div class="ui blue basic button" onclick="location.href='#/shamy'">Shamy</div>
-        <div class="ui red basic button" onclick="location.href='#/andy'">Andy</div>
-        <div class="ui orange basic button" onclick="location.href='#/dom'">Dom</div>
-        <div class="ui purple basic button" onclick="location.href='#/jamie'">Jamie</div>
+        <div class="ui blue basic button" onclick="location.href='#/shamy'" id="shamy-link">Shamy</div>
+        <div class="ui red basic button" onclick="location.href='#/andy'" id="andy-link">Andy</div>
+        <div class="ui orange basic button" onclick="location.href='#/dom'" id="dom-link">Dom</div>
+        <div class="ui purple basic button" onclick="location.href='#/jamie'" id="jamie-link">Jamie</div>
       </div>
     </div>
     </div>
   <div class="six wide column" id="invalid">
     <div class=" ui grid">
       <div class="two wide column"> </div>
-      <div class="twelve wide column"> 
+      <div class="twelve wide column" id="bio"> 
       <h1 class= "ui teal header animated pulse"> Roommate Info </h1>
-        <div class="ui card" id="bio">
+        <div class="ui card">
         <!-- card, will be a script template -->
         <!-- will need individual attributes for each roomate -->
           <div class="image">
@@ -124,5 +124,178 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- card templates -->
+<script type="text/template" id="shamy-card">
+        <div class="ui card" id="bio">
+          <div class="image">
+            <img src="/shamy.jpeg">
+          </div>
+          <div class="content">
+            <a class="header">Zahed Shamy</a>
+            <div class="meta">
+              <span class="date">Sweat Twin</span>
+            </div>
+            <div class="description">
+              Shamy is an expert at riff-raffing in the garden and making good use of the Gowanus
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              Total Debt: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Dom}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Andy}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Jamie}}: {{template in later}}
+            </a>
+          </div>
+        </div>
+</script>
+
+
+<script type="text/template" id="dom-card">
+        <div class="ui card" id="bio">
+          <div class="image">
+            <img src="/dom.jpeg">
+          </div>
+          <div class="content">
+            <a class="header">Dom</a>
+            <div class="meta">
+              <span class="date">Uncle Shitfeet</span>
+            </div>
+            <div class="description">
+              ZHOM COME ON
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              Total Debt: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Shamy}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Andy}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Jamie}}: {{template in later}}
+            </a>
+          </div>
+        </div>
+</script>
+
+<script type="text/template" id="andy-card">
+        <div class="ui card" id="bio">
+          <div class="image">
+            <img src="/alf.jpeg">
+          </div>
+          <div class="content">
+            <a class="header">Creme Fraiche</a>
+            <div class="meta">
+              <span class="date">Blind Rage</span>
+            </div>
+            <div class="description">
+              OHHHHHHHH KRALF
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              Total Debt: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Dom}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Andy}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Jamie}}: {{template in later}}
+            </a>
+          </div>
+        </div>
+</script>
+
+
+<script type="text/template" id="jamie-card">
+        <div class="ui card" id="bio">
+          <div class="image">
+            <img src="/riff.jpeg">
+          </div>
+          <div class="content">
+            <a class="header">Riff Raff Brickman</a>
+            <div class="meta">
+              <span class="date">Bullet Train</span>
+            </div>
+            <div class="description">
+              Riff loves ill growth in the garden and Steely Dan
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              Total Debt: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Dom}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Andy}}: {{template this in later}}
+            </a>
+          </div>
+          <div class="extra content">
+            <a>
+              Owes {{Jamie}}: {{template in later}}
+            </a>
+          </div>
+        </div>
+</script>
+
+
+
+
+
+
+
+
 
 

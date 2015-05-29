@@ -101,11 +101,47 @@ var FormView = Backbone.View.extend({
 
 })
 
+var LinkView = Backbone.View.extend({
+  events:{
+    'click #shamy-link': 'renderShamy',
+    'click #dom-link': 'renderDom',
+    'click #andy-link': 'renderAndy',
+    'click #jamie-link': 'renderJamie'
+  },
+
+  renderShamy: function(){
+    $(".ui.card").remove()
+    var template = $("#shamy-card").html()
+    $("#bio").append(template)
+  },
+
+  renderDom: function(){
+    $(".ui.card").remove()
+    var template = $("#dom-card").html()
+    $("#bio").append(template)
+  },
+
+  renderAndy: function(){
+    $(".ui.card").remove()
+    var template = $("#andy-card").html()
+    $("#bio").append(template)
+  },
+
+  renderJamie: function(){
+    console.log("renderDom")
+    $(".ui.card").remove()
+    var template = $("#jamie-card").html()
+    $("#bio").append(template)
+  }
+
+})
+
 
 var bills = new Bills()
 var billzView = new BillsView({collection: bills})
 var form = new FormView({el: $("#form-container")})
 var promise = bills.fetch()
+var linkView = new LinkView({el: $("#link-bar")})
 
 
 
