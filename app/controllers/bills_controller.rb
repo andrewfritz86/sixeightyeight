@@ -21,6 +21,10 @@ class BillsController < ApplicationController
     render json: bill
   end
 
+  def destroy
+    bill = Bill.find(params[:id]).destroy
+    render json: bill
+  end
 
   private
 

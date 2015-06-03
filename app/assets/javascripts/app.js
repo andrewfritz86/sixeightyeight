@@ -8,31 +8,39 @@ var Bill = Backbone.Model.extend({
 
 //individual bill views that watch individual models
 var BillView = Backbone.View.extend({
+  initialize: function(){
+    this.listenTo(this.model, "destroy", this.remove)
+  },
   events: {
     //listen for an 'input' event on html5 contenteditable areas
-    'blur td': 'data'
+    'blur td': 'data',
+    'click .delete': 'delete'
   },
   tagName: 'tr',
   template: $("#bill-template").html(),
+  remove: function(){
+    this.$el.remove()
+  },
   render: function(){
     var html = Mustache.render(this.template, this.model.attributes);
     this.$el.html(html);
     $("#main-table").append(this.el);
   },
+  delete: function(){
+    // this.model.collection.remove(this.model)
+    this.model.destroy()
+    console.log("Delete")
+  },
   data: function(event){
-    //need to run the isnum test on the cell that has been edited
-    //use event.target
-    //strip out spaces, was throwing off the check to see if a number appears
     var value = event.target.textContent.replace(/\s/g, '');
+    //switch to "0" to parseInt
     if(value === ""){
       value = "0"
     }
-    // value == "3" : "0" + value ? value  
     var isnum = /^\d+$/.test(value);
     if(isnum){
       console.log('valid')
       var updateObject = {};
-    // debugger
       updateObject.dom_debt = parseInt(this.$el.find("#dom-debt").text())
       updateObject.andy_debt = parseInt(this.$el.find("#andy-debt").text())
       updateObject.shamy_debt = parseInt(this.$el.find("#shamy-debt").text())
@@ -75,6 +83,7 @@ var BillsView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.collection, 'add', this.addABill);
     this.listenTo(this.collection, 'sync', this.totalRender);
+    this.listenTo(this.collection, 'remove', this.totalRender)
   },
   //function that fires each time a bill is added, creating a model and rendering out a bill.
   addABill: function(bill){

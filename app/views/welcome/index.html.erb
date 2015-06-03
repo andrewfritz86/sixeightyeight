@@ -14,6 +14,7 @@
             <th> <h5 class="ui blue header"> Sweat Twin Owes </h5> </th>
             <th> <h5 class="ui blue header"> Riff Raff Owes </h5> </th>
             <th> <h5 class="ui blue header"> Pomme Frittes Owes</h5> </th>
+            <th> <h5 class="ui blue header"> Delete?</h5> </th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,11 @@
           <td contenteditable="true" id="shamy-debt" class="debt">{{shamy_debt}}</td>
           <td contenteditable="true" id="jamie-debt" class="debt"> {{jamie_debt}}</td>
           <td contenteditable="true" id="andy-debt" class="debt"> {{andy_debt}}</td>
+          <td>
+            <div class="mini ui button red delete">
+              X
+            </div>
+          </td>
           </script>
         </tbody>
       </table>
@@ -69,7 +75,7 @@
           </div>
         </div>
         <div>
-          </br>
+        <h5 class= "ui teal header animated pulse"> Total Debt Quickview </h5>
           <table class="ui table" id="breakdowntable">
             <thead>
               <tr>
@@ -87,10 +93,10 @@
                   <td>{{andy_total}}</td>
                 </tr>
                 <script type="text/template" id="total-template">
-                    <td>{{dom_total}}</td>
-                    <td>{{shamy_total}}</td>
-                    <td>{{jamie_total}}</td>
-                    <td>{{andy_total}}</td>
+                    <td class="debt">{{dom_total}}</td>
+                    <td class="debt">{{shamy_total}}</td>
+                    <td class="debt">{{jamie_total}}</td>
+                    <td class="debt">{{andy_total}}</td>
                 </script>
             </tbody>
           </table>
