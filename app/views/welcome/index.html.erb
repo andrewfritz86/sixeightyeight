@@ -2,7 +2,7 @@
 <div class="ui grid">
   <div class="two wide column"></div>
   <div class="eight wide column">
-    <span id="header"> <a href="/#"><h1 class= "ui teal header animated pulse"> 140 10th Billz, Ya'll </h1></a></span>
+    <span id="header"> <a href="/#"><h3 class= "ui teal header animated pulse"> 140 10th Billz, Ya'll </h3></a></span>
     </br>
     <div id="main">
       <table class="ui table" id="main-table">
@@ -30,7 +30,7 @@
     </div>
     </br>
     <div id="form-container">
-      <h3 class="ui teal header animated pulse"> Add a Bill </h3>
+      <h5 class="ui teal header animated pulse"> Add a Bill </h5>
       <form class="ui form" id="billform">
           <div class="field">
             <div class="two fields">
@@ -49,7 +49,7 @@
           </div>
           <div class="field">
             <label class="ui teal header animated pulse">Amounts Owed </label>
-            <div class="four fields">
+            <div class="five fields">
               <div class="field">
                 <input type="text" id="dom-owes" placeholder="Dom Owes:">
               </div>
@@ -62,10 +62,12 @@
               <div class="field">
                 <input type="text" id="shamy-owes" placeholder="Shamy Owes:">
               </div>
+              <div class="field">
+                <div class="medium teal ui button" style="margin-left: 20px;" id="addbill">Add Bill </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="ui teal basic button" id="addbill">Add Bill </div>
         <div>
           </br>
           <table class="ui table" id="breakdowntable">
@@ -108,7 +110,7 @@
     <div class=" ui grid">
       <div class="two wide column"> </div>
       <div class="twelve wide column" id="bio"> 
-      <h1 class= "ui teal header animated pulse"> Roommate Info </h1>
+      <h3 class= "ui teal header animated pulse"> Roommate Info </h3>
         <div class="ui card">
         <!-- card, will be a script template -->
         <!-- will need individual attributes for each roomate -->
@@ -136,7 +138,7 @@
 <!-- card templates -->
 <script type="text/template" id="shamy-card">
         <div class="ui card" id="bio">
-          <div>
+          <div class="centered">
             <img src="/shamy.jpeg" class="demo">
           </div>
           <div class="content">
@@ -145,7 +147,7 @@
               <span class="date">Sweat Twin</span>
             </div>
             <div class="description">
-              Shamy is an expert at riff-raffing in the garden and making good use of the Gowanus
+              Foam-Roller
             </div>
           </div>
           <div class="extra content">
@@ -174,7 +176,7 @@
 
 <script type="text/template" id="dom-card">
         <div class="ui card" id="bio">
-          <div>
+          <div class="centered">
             <img src="/dom.jpeg" class="demo">
           </div>
           <div class="content">
@@ -211,7 +213,7 @@
 
 <script type="text/template" id="andy-card">
         <div class="ui card" id="bio">
-          <div>
+          <div class="centered">
             <img src="/alf.jpeg" class="demo">
           </div>
           <div class="content">
@@ -249,7 +251,7 @@
 
 <script type="text/template" id="jamie-card">
         <div class="ui card" id="bio">
-          <div>
+          <div class="centered">
             <img src="/riff.jpeg" class="demo">
           </div>
           <div class="content">
@@ -258,7 +260,7 @@
               <span class="date">Bullet Train</span>
             </div>
             <div class="description">
-              Riff loves ill growth in the garden and Steely Dan
+              Kid Charlemagne
             </div>
           </div>
           <div class="extra content">
