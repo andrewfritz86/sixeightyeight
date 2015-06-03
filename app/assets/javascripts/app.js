@@ -24,14 +24,19 @@ var BillView = Backbone.View.extend({
     //use event.target
     //strip out spaces, was throwing off the check to see if a number appears
     var value = event.target.textContent.replace(/\s/g, '');
+    if(value === ""){
+      value = "0"
+    }
+    // value == "3" : "0" + value ? value  
     var isnum = /^\d+$/.test(value);
     if(isnum){
       console.log('valid')
       var updateObject = {};
-      updateObject.dom_debt = this.$el.find("#dom-debt").text()
-      updateObject.andy_debt = this.$el.find("#andy-debt").text()
-      updateObject.shamy_debt = this.$el.find("#shamy-debt").text()
-      updateObject.jamie_debt = this.$el.find("#jamie-debt").text()
+    // debugger
+      updateObject.dom_debt = parseInt(this.$el.find("#dom-debt").text())
+      updateObject.andy_debt = parseInt(this.$el.find("#andy-debt").text())
+      updateObject.shamy_debt = parseInt(this.$el.find("#shamy-debt").text())
+      updateObject.jamie_debt = parseInt(this.$el.find("#jamie-debt").text())
       this.model.set(updateObject)
       this.model.save() 
     }else{
