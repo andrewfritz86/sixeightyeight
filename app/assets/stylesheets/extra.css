@@ -16,6 +16,8 @@
   content: '$';
 }
 
-.image{
-  border-radius: 25px;
+.demo{
+  border-radius: 150px;
+  width: 290px;
+  height: 290px;
 }
