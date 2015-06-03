@@ -25,7 +25,6 @@ var BillView = Backbone.View.extend({
     //strip out spaces, was throwing off the check to see if a number appears
     var value = event.target.textContent.replace(/\s/g, '');
     var isnum = /^\d+$/.test(value);
-    console.log(isnum)
     if(isnum){
       console.log('valid')
       var updateObject = {};
@@ -63,16 +62,53 @@ var Bills = Backbone.Collection.extend({
   url: "/bills",
 })
 
+
+
 //view that observes collection of models
 var BillsView = Backbone.View.extend({
   collection: Bills,
   initialize: function(){
     this.listenTo(this.collection, 'add', this.addABill);
+    this.listenTo(this.collection, 'sync', this.totalRender);
   },
   //function that fires each time a bill is added, creating a model and rendering out a bill.
   addABill: function(bill){
     var newView = new BillView({model: bill});
     newView.render();
+  },
+  //this should be a function where a name of a person owed is passed in as an argument
+  domTotal: function(){
+    var total = this.collection.pluck("dom_debt");
+    var sum = _.reduce(total, function(init, num){return init + num}, 0) 
+    this.trigger("domTotal")
+    return sum
+  },
+  andyTotal: function(){
+    var total = this.collection.pluck("andy_debt");
+    var sum = _.reduce(total, function(init, num){return init + num}, 0) 
+    this.trigger("domTotal")
+    return sum
+  },
+  shamyTotal: function(){
+    var total = this.collection.pluck("shamy_debt");
+    var sum = _.reduce(total, function(init, num){return init + num}, 0) 
+    this.trigger("domTotal")
+    return sum
+  },
+  jamieTotal: function(){
+    var total = this.collection.pluck("jamie_debt");
+    var sum = _.reduce(total, function(init, num){return init + num}, 0) 
+    this.trigger("domTotal")
+    return sum
+  },
+  totalRender: function(){
+    var dom = this.domTotal()
+    var andy = this.andyTotal()
+    var shamy = this.shamyTotal()
+    var jamie = this.jamieTotal()
+    var template = $("#total-template").html( )
+    var html = Mustache.render(template, {andy_total: andy, shamy_total: shamy, jamie_total: jamie, dom_total: dom})
+    $("#totals").html(html)
   }
 })
 
@@ -101,7 +137,13 @@ var FormView = Backbone.View.extend({
 
 })
 
+//view observing link bar
 var LinkView = Backbone.View.extend({
+
+  initialize: function(options){
+    this.billsCollection = options.billsCollection
+  },
+
   events:{
     'click #shamy-link': 'renderShamy',
     'click #dom-link': 'renderDom',
@@ -116,6 +158,9 @@ var LinkView = Backbone.View.extend({
   },
 
   renderDom: function(){
+    //somewhere in here we want to hit the collection to return the amount Dom owes
+    var sum = this.billsCollection.domTotal()
+    //grab the sum above, now we need to actually mustache in the template
     $(".ui.card").remove()
     var template = $("#dom-card").html()
     $("#bio").append(template)
@@ -141,7 +186,7 @@ var bills = new Bills()
 var billzView = new BillsView({collection: bills})
 var form = new FormView({el: $("#form-container")})
 var promise = bills.fetch()
-var linkView = new LinkView({el: $("#link-bar")})
+var linkView = new LinkView({el: $("#link-bar"), billsCollection: billzView})
 
 
 
