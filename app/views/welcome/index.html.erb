@@ -59,16 +59,16 @@
             <label class="ui teal header animated pulse">Amounts Owed </label>
             <div class="five fields">
               <div class="field">
-                <input type="text" id="dom-owes" placeholder="Dom Owes:">
+                <input type="text" id="dom-owes" placeholder="Dom Owes: $">
               </div>
               <div class="field">
-                <input type="text" id="andy-owes" placeholder="Andy Owes:">
+                <input type="text" id="andy-owes" placeholder="Andy Owes: $">
               </div>
               <div class="field">
-                <input type="text" id="jamie-owes" placeholder="Jamie Owes:">
+                <input type="text" id="jamie-owes" placeholder="Jamie Owes: $">
               </div>
               <div class="field">
-                <input type="text" id="shamy-owes" placeholder="Shamy Owes:">
+                <input type="text" id="shamy-owes" placeholder="Shamy Owes: $">
               </div>
               <div class="field">
                 <div class="medium teal ui button" style="margin-left: 20px;" id="addbill">Add Bill </div>
@@ -81,10 +81,10 @@
           <table class="ui table" id="breakdowntable">
             <thead>
               <tr>
-                <th>Dom Total</th>
-                <th>Shamy Total</th>
-                <th>Jamie Total</th>
-                <th>Andy Total</th>
+                <th>Dom Total Debt</th>
+                <th>Shamy Total Debt</th>
+                <th>Jamie Total Debt</th>
+                <th>Andy Total Debt</th>
               </tr>
             </thead>
             <tbody>
@@ -151,5 +151,99 @@
   </div>
 </div>
 </script>
+
+<script type="text/template" id="andy-modal-template">
+<div class="ui modal" id="andy-modal">
+  <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui medium image">
+          <img src="/andy.jpeg">
+        </div>
+        <div class="ui header">Creme Fraiche</div>
+      </div>
+      <div class="twelve wide column">
+        <table class="ui table">
+          <thead>
+            <tr>
+              <th> Shamy Owes Andy </th>
+              <th> Dom Owes Andy </th>
+              <th> Jamie Owes Dom </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> {{shamyTotal}} </td>
+              <td> {{domTotal}} </td>
+              <td> {{jamieTotal}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+</script>
+
+<script type="text/template" id="shamy-modal-template">
+<div class="ui modal" id="shamy-modal">
+  <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui medium image">
+          <img src="/shamy.jpeg">
+        </div>
+        <div class="ui header">Gowanus sweat twin</div>
+      </div>
+      <div class="twelve wide column">
+        <table class="ui table">
+          <thead>
+            <tr>
+              <th> Dom Owes Shamy </th>
+              <th> Andy Owes Shamy </th>
+              <th> Jamie Owes Shamy </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> {{domTotal}} </td>
+              <td> {{andyTotal}} </td>
+              <td> {{jamieTotal}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+</script>
+
+<script type="text/template" id="jamie-modal-template">
+<div class="ui modal" id="jamie-modal">
+  <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui medium image">
+          <img src="/dom.jpeg">
+        </div>
+        <div class="ui header">jamie king</div>
+      </div>
+      <div class="twelve wide column">
+        <table class="ui table">
+          <thead>
+            <tr>
+              <th> Shamy Owes Jamie </th>
+              <th> Andy Owes Jamie </th>
+              <th> Dom Owes Jamie </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> {{shamyTotal}} </td>
+              <td> {{andyTotal}} </td>
+              <td> {{domTotal}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+</script>
+
 
 
