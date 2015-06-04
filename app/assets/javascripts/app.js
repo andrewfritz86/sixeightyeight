@@ -90,7 +90,28 @@ var BillsView = Backbone.View.extend({
     var newView = new BillView({model: bill});
     newView.render();
   },
-  //this should be a function where a name of a person owed is passed in as an argument
+  domOwed:function(){
+     var outstanding = _.filter(this.collection.models, function(e){ return e.attributes.owner === "Dom" });
+     //shamy owes
+     var shamyArray = _.map(outstanding, function(e){
+      return e.attributes.shamy_debt
+     })
+     var shamyTotal = _.reduce(shamyArray, function(memo, num){ return memo + num; }, 0);
+     //jamie owes
+     var jamieArray = _.map(outstanding, function(e){
+      return e.attributes.jamie_debt
+     })
+     var jamieTotal = _.reduce(jamieArray, function(memo, num){ return memo + num; }, 0);
+
+     //andy owes
+     var andyArray = _.map(outstanding, function(e){
+      return e.attributes.andy_debt
+     })
+     var andyTotal = _.reduce(andyArray, function(memo, num){ return memo + num; }, 0);
+    //now build and object and return it
+    return {shamyTotal: shamyTotal, jamieTotal: jamieTotal, andyTotal: andyTotal}
+
+  },
   domTotal: function(){
     var total = this.collection.pluck("dom_debt");
     var sum = _.reduce(total, function(init, num){return init + num}, 0) 
@@ -155,6 +176,7 @@ var FormView = Backbone.View.extend({
 var LinkView = Backbone.View.extend({
 
   initialize: function(options){
+    this.billsCollectionView = options.billsCollectionView
     this.billsCollection = options.billsCollection
   },
 
@@ -173,11 +195,14 @@ var LinkView = Backbone.View.extend({
 
   renderDom: function(){
     //somewhere in here we want to hit the collection to return the amount Dom owes
-    var sum = this.billsCollection.domTotal()
+    var totalOwed = this.billsCollectionView.domTotal()
+    var debtors = this.billsCollectionView.domOwed()
+    debtors.totalOwed = totalOwed
     //grab the sum above, now we need to actually mustache in the template
     $(".ui.card").remove()
     var template = $("#dom-card").html()
-    $("#bio").append(template)
+    var html = Mustache.render(template,debtors)
+    $("#bio").append(html)
   },
 
   renderAndy: function(){
@@ -200,7 +225,7 @@ var bills = new Bills()
 var billzView = new BillsView({collection: bills})
 var form = new FormView({el: $("#form-container")})
 var promise = bills.fetch()
-var linkView = new LinkView({el: $("#link-bar"), billsCollection: billzView})
+var linkView = new LinkView({el: $("#link-bar"), billsCollectionView: billzView, billsCollection: bills})
 
 
 
