@@ -90,7 +90,7 @@ var BillsView = Backbone.View.extend({
     var newView = new BillView({model: bill});
     newView.render();
   },
-  domOwed:function(){
+  domOwed: function(){
 
      var outstanding = _.filter(this.collection.models, function(e){ return e.attributes.owner === "Dom" });
 
@@ -112,12 +112,12 @@ var BillsView = Backbone.View.extend({
      })
      var andyTotal = _.reduce(andyArray, function(memo, num){ return memo + num; }, 0);
 
-    //now build and object and return it
-    return {shamyTotal: shamyTotal, jamieTotal: jamieTotal, andyTotal: andyTotal}
+     //now build and object and return it
+     return {shamyTotal: shamyTotal, jamieTotal: jamieTotal, andyTotal: andyTotal}
 
   },
 
-  shamyOwed:function(){
+  shamyOwed: function(){
      var outstanding = _.filter(this.collection.models, function(e){ return e.attributes.owner === "Shamy" });
 
      //andy owes
@@ -139,7 +139,57 @@ var BillsView = Backbone.View.extend({
      var domTotal = _.reduce(domArray, function(memo, num){ return memo + num; }, 0);
 
      //now build and object and return it
-    return {domTotal: domTotal, jamieTotal: jamieTotal, andyTotal: andyTotal}
+     return {domTotal: domTotal, jamieTotal: jamieTotal, andyTotal: andyTotal}
+  },
+
+  andyOwed: function(){
+     var outstanding = _.filter(this.collection.models, function(e){ return e.attributes.owner === "Andy" });
+
+     //jamie owes
+     var jamieArray = _.map(outstanding, function(e){
+      return e.attributes.jamie_debt
+     })
+     var jamieTotal = _.reduce(jamieArray, function(memo, num){ return memo + num; }, 0);
+
+     //dom owes
+     var domArray = _.map(outstanding, function(e){
+      return e.attributes.dom_debt
+     })
+     var domTotal = _.reduce(domArray, function(memo, num){ return memo + num; }, 0);
+
+     //shamy owes
+     var shamyArray = _.map(outstanding, function(e){
+      return e.attributes.shamy_debt
+     })
+     var shamyTotal = _.reduce(shamyArray, function(memo, num){ return memo + num; }, 0);
+
+     //now build and object and return it
+     return {domTotal: domTotal, jamieTotal: jamieTotal, shamyTotal: shamyTotal}
+  },
+
+  jamieOwed: function(){
+    console.log("jamieowed")
+    var outstanding = _.filter(this.collection.models, function(e){ return e.attributes.owner === "Jamie" });
+     //dom owes
+    var domArray = _.map(outstanding, function(e){
+      return e.attributes.dom_debt
+    })
+    var domTotal = _.reduce(domArray, function(memo, num){ return memo + num; }, 0);
+
+    //shamy owes
+    var shamyArray = _.map(outstanding, function(e){
+      return e.attributes.shamy_debt
+    })
+    var shamyTotal = _.reduce(shamyArray, function(memo, num){ return memo + num; }, 0);
+
+    //andy owes
+    var andyArray = _.map(outstanding, function(e){
+      return e.attributes.andy_debt
+    })
+    var andyTotal = _.reduce(andyArray, function(memo, num){ return memo + num; }, 0);
+
+    //build and return object
+    return {domTotal: domTotal, andyTotal: andyTotal, shamyTotal: shamyTotal}
   },
 
   domTotal: function(){
@@ -218,7 +268,6 @@ var LinkView = Backbone.View.extend({
   },
 
   renderShamy: function(){
-    console.log("shamy modal")
     var totalOwed = this.billsCollectionView.shamyTotal()
     var debtors = this.billsCollectionView.shamyOwed()
     debtors.totalOwed = totalOwed
@@ -226,14 +275,12 @@ var LinkView = Backbone.View.extend({
     var html = Mustache.render(template,debtors)
     $("body").append(html)
     $('#shamy-modal').modal("setting", {onHidden: function(){
-      console.log("hidden")
       this.remove()
     }})
     $('#shamy-modal').modal('show')
   },
 
   renderDom: function(){
-    console.log("dommie modal")
     //somewhere in here we want to hit the collection to return the amount Dom owes
     var totalOwed = this.billsCollectionView.domTotal()
     var debtors = this.billsCollectionView.domOwed()
@@ -250,11 +297,33 @@ var LinkView = Backbone.View.extend({
   },
 
   renderAndy: function(){
-    console.log("andy modal")
+    var totalOwed = this.billsCollectionView.andyTotal()
+    var debtors = this.billsCollectionView.andyOwed()
+    debtors.totalOwed = totalOwed
+    var template = $("#andy-modal-template").html()
+    var html = Mustache.render(template,debtors)
+    $("body").append(html)
+    //add a setting to the modal to fire a callback when it's hidden. modal removes itself from dom.
+    $('#andy-modal').modal("setting", {onHidden: function(){
+      console.log("hidden")
+      this.remove()
+    }})
+    $('#andy-modal').modal('show')
   },
 
   renderJamie: function(){
-    console.log("jamie modal")
+    var totalOwed = this.billsCollectionView.jamieTotal()
+    var debtors = this.billsCollectionView.jamieOwed()
+    debtors.totalOwed = totalOwed
+    console.log(debtors)
+    var template = $("#jamie-modal-template").html()
+    var html = Mustache.render(template,debtors)
+    $("body").append(html)
+    $('#jamie-modal').modal("setting", {onHidden: function(){
+      console.log("hidden")
+      this.remove()
+    }})
+    $('#jamie-modal').modal('show')
   }
 
 })
