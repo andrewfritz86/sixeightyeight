@@ -281,14 +281,12 @@ var LinkView = Backbone.View.extend({
   },
 
   renderDom: function(){
-    //somewhere in here we want to hit the collection to return the amount Dom owes
     var totalOwed = this.billsCollectionView.domTotal()
     var debtors = this.billsCollectionView.domOwed()
     debtors.totalOwed = totalOwed
     var template = $("#dom-modal-template").html()
     var html = Mustache.render(template,debtors)
     $("body").append(html)
-    //add a setting to the modal to fire a callback when it's hidden. modal removes itself from dom.
     $('#dom-modal').modal("setting", {onHidden: function(){
       console.log("hidden")
       this.remove()
@@ -303,7 +301,6 @@ var LinkView = Backbone.View.extend({
     var template = $("#andy-modal-template").html()
     var html = Mustache.render(template,debtors)
     $("body").append(html)
-    //add a setting to the modal to fire a callback when it's hidden. modal removes itself from dom.
     $('#andy-modal').modal("setting", {onHidden: function(){
       console.log("hidden")
       this.remove()
@@ -315,7 +312,6 @@ var LinkView = Backbone.View.extend({
     var totalOwed = this.billsCollectionView.jamieTotal()
     var debtors = this.billsCollectionView.jamieOwed()
     debtors.totalOwed = totalOwed
-    console.log(debtors)
     var template = $("#jamie-modal-template").html()
     var html = Mustache.render(template,debtors)
     $("body").append(html)
