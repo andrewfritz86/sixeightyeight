@@ -121,14 +121,35 @@
 
 
 
-
-<div class="ui modal" id="shamy-modal">
-  <i class="close icon"></i>
-    <div class="ui medium image">
-      <img src="/shamy.jpeg">
-    </div>
-  <div class="ui header">Alexander Shamy, The Sweaty King of the Gowanus (ill no-complies)</div>
-
+<script type="text/template" id="dom-modal-template">
+<div class="ui modal" id="dom-modal">
+  <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui medium image">
+          <img src="/dom.jpeg">
+        </div>
+        <div class="ui header">ZHOM AKA uncle shitfeet</div>
+      </div>
+      <div class="twelve wide column">
+        <table class="ui table">
+          <thead>
+            <tr>
+              <th> Shamy Owes Dom </th>
+              <th> Andy Owes Dom </th>
+              <th> Jamie Owes Dom </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> {{shamyTotal}} </td>
+              <td> {{andyTotal}} </td>
+              <td> {{jamieTotal}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
 </div>
+</script>
 
 

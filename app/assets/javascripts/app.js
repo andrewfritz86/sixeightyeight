@@ -198,7 +198,16 @@ var LinkView = Backbone.View.extend({
     var totalOwed = this.billsCollectionView.domTotal()
     var debtors = this.billsCollectionView.domOwed()
     debtors.totalOwed = totalOwed
-    //read in modal template, update amounts, append to dom, then call modal
+    var template = $("#dom-modal-template").html()
+    var html = Mustache.render(template,debtors)
+    $("body").append(html)
+    //add a setting to the modal to fire a callback when it's hidden. modal removes itself from dom.
+    $('#dom-modal').modal("setting", {onHidden: function(){
+      console.log("hidden")
+      // debugger
+      this.remove()
+    }})
+    $('#dom-modal').modal('show')
   },
 
   renderAndy: function(){
