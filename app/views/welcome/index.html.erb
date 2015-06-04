@@ -122,128 +122,196 @@
 
 
 <script type="text/template" id="dom-modal-template">
-<div class="ui modal" id="dom-modal">
-  <div class="ui grid">
-      <div class="four wide column">
-        <div class="ui medium image">
-          <img src="/dom.jpeg">
+  <div class="ui modal" id="dom-modal">
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="four wide column">
+          <div class="ui medium image">
+            <img src="/dom.jpeg" class="demo">
+          </div>
         </div>
-        <div class="ui header">ZHOM AKA uncle shitfeet</div>
-      </div>
-      <div class="twelve wide column">
-        <table class="ui table">
-          <thead>
-            <tr>
-              <th> Shamy Owes Dom </th>
-              <th> Andy Owes Dom </th>
-              <th> Jamie Owes Dom </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> {{shamyTotal}} </td>
-              <td> {{andyTotal}} </td>
-              <td> {{jamieTotal}} </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-  </div>
-</div>
-</script>
-
-<script type="text/template" id="andy-modal-template">
-<div class="ui modal" id="andy-modal">
-  <div class="ui grid">
-      <div class="four wide column">
-        <div class="ui medium image">
-          <img src="/andy.jpeg">
+        <div class="eight wide column">
+        </br></br></br>
+          <table class="ui table">
+            <thead>
+              <tr>
+                <th> Shamy Owes Dom </th>
+                <th> Andy Owes Dom </th>
+                <th> Jamie Owes Dom </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> {{shamyTotal}} </td>
+                <td class="debt"> {{andyTotal}} </td>
+                <td class="debt"> {{jamieTotal}} </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th> Dom Owes Shamy </th>
+                <th> Dom Owes Andy </th>
+                <th> Dom Owes Jamie </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> coming shamyTotalOwed </td>
+                <td class="debt"> coming andyTotalOwed</td>
+                <td class="debt"> coming jamieTotalOwed</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="ui header">Creme Fraiche</div>
-      </div>
-      <div class="twelve wide column">
-        <table class="ui table">
-          <thead>
-            <tr>
-              <th> Shamy Owes Andy </th>
-              <th> Dom Owes Andy </th>
-              <th> Jamie Owes Dom </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> {{shamyTotal}} </td>
-              <td> {{domTotal}} </td>
-              <td> {{jamieTotal}} </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="two wide column">
+        </div>
+    </div>
   </div>
-</div>
 </script>
 
 <script type="text/template" id="shamy-modal-template">
-<div class="ui modal" id="shamy-modal">
-  <div class="ui grid">
-      <div class="four wide column">
-        <div class="ui medium image">
-          <img src="/shamy.jpeg">
+  <div class="ui modal" id="shamy-modal">
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="four wide column">
+          <div class="ui medium image">
+            <img src="/shamy.jpeg" class="demo">
+          </div>
         </div>
-        <div class="ui header">Gowanus sweat twin</div>
-      </div>
-      <div class="twelve wide column">
-        <table class="ui table">
-          <thead>
-            <tr>
-              <th> Dom Owes Shamy </th>
-              <th> Andy Owes Shamy </th>
-              <th> Jamie Owes Shamy </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> {{domTotal}} </td>
-              <td> {{andyTotal}} </td>
-              <td> {{jamieTotal}} </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="eight wide column">
+        </br></br></br>
+          <table class="ui table">
+            <thead>
+              <tr>
+                <th> Dom Owes Shamy </th>
+                <th> Andy Owes Shamy </th>
+                <th> Jamie Owes Shamy </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> {{domTotal}} </td>
+                <td class="debt"> {{andyTotal}} </td>
+                <td class="debt"> {{jamieTotal}} </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th> Shamy Owes Dom </th>
+                <th> Shamy Owes Andy </th>
+                <th> Shamy Owes Jamie </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> coming domTotalOwed </td>
+                <td class="debt"> coming andyTotalOwed</td>
+                <td class="debt"> coming jamieTotalOwed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="two wide column">
+        </div>
+    </div>
   </div>
-</div>
+</script>
+
+
+<script type="text/template" id="andy-modal-template">
+  <div class="ui modal" id="andy-modal">
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="four wide column">
+          <div class="ui medium image">
+            <img src="/andy.jpeg" class="demo">
+          </div>
+        </div>
+        <div class="eight wide column">
+        </br></br></br>
+          <table class="ui table">
+            <thead>
+              <tr>
+                <th> Shamy Owes Andy </th>
+                <th> Dom Owes Andy </th>
+                <th> Jamie Owes Andy </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> {{shamyTotal}} </td>
+                <td class="debt"> {{domTotal}} </td>
+                <td class="debt"> {{jamieTotal}} </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th> Andy Owes Shamy </th>
+                <th> Andy Owes Dom </th>
+                <th> Andy Owes Jamie </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> coming shamyTotalOwed </td>
+                <td class="debt"> coming domTotalOwed </td>
+                <td class="debt"> coming jamieTotalOwed </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="two wide column">
+        </div>
+    </div>
+  </div>
 </script>
 
 <script type="text/template" id="jamie-modal-template">
-<div class="ui modal" id="jamie-modal">
-  <div class="ui grid">
-      <div class="four wide column">
-        <div class="ui medium image">
-          <img src="/dom.jpeg">
+  <div class="ui modal" id="jamie-modal">
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="four wide column">
+          <div class="ui medium image">
+            <img src="/jamie.jpeg" class="demo">
+          </div>
         </div>
-        <div class="ui header">jamie king</div>
-      </div>
-      <div class="twelve wide column">
-        <table class="ui table">
-          <thead>
-            <tr>
-              <th> Shamy Owes Jamie </th>
-              <th> Andy Owes Jamie </th>
-              <th> Dom Owes Jamie </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> {{shamyTotal}} </td>
-              <td> {{andyTotal}} </td>
-              <td> {{domTotal}} </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="eight wide column">
+        </br></br></br>
+          <table class="ui table">
+            <thead>
+              <tr>
+                <th> Shamy Owes Jamie </th>
+                <th> Andy Owes Jamie </th>
+                <th> Dom Owes Jamie </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> {{shamyTotal}} </td>
+                <td class="debt"> {{andyTotal}} </td>
+                <td class="debt"> {{domTotal}} </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th> Jamie Owes Shamy </th>
+                <th> Jamie Owes Andy </th>
+                <th> Jamie Owes Dom </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="debt"> coming shamyTotalOwed </td>
+                <td class="debt"> coming andyTotalOwed</td>
+                <td class="debt"> coming domTotalOwed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="two wide column">
+        </div>
+    </div>
   </div>
-</div>
 </script>
-
 
 

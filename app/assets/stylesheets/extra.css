@@ -18,14 +18,10 @@
 
 .demo{
   border-radius: 150px;
-  width: 150px;
-  height: 150px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .centered{
     margin: auto;
-}
-
-.nudge{
-  margin-left: 25px;
 }
