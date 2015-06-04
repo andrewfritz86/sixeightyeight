@@ -188,34 +188,25 @@ var LinkView = Backbone.View.extend({
   },
 
   renderShamy: function(){
-    $(".ui.card").remove()
-    var template = $("#shamy-card").html()
-    $("#bio").append(template)
+    console.log("shamy modal")
+    $('#shamy-modal').modal('show')
   },
 
   renderDom: function(){
+    console.log("dommie modal")
     //somewhere in here we want to hit the collection to return the amount Dom owes
     var totalOwed = this.billsCollectionView.domTotal()
     var debtors = this.billsCollectionView.domOwed()
     debtors.totalOwed = totalOwed
-    //grab the sum above, now we need to actually mustache in the template
-    $(".ui.card").remove()
-    var template = $("#dom-card").html()
-    var html = Mustache.render(template,debtors)
-    $("#bio").append(html)
+    //read in modal template, update amounts, append to dom, then call modal
   },
 
   renderAndy: function(){
-    $(".ui.card").remove()
-    var template = $("#andy-card").html()
-    $("#bio").append(template)
+    console.log("andy modal")
   },
 
   renderJamie: function(){
-    console.log("renderDom")
-    $(".ui.card").remove()
-    var template = $("#jamie-card").html()
-    $("#bio").append(template)
+    console.log("jamie modal")
   }
 
 })
