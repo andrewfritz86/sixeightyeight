@@ -1,4 +1,4 @@
-// var BillsApp = BillsApp || { Models: {}, Views: {}, Collections: {} };
+var BillsApp = BillsApp || { Models: {}, Views: {}, Collections: {} };
 
   BillsApp.Views.BillsView = Backbone.View.extend({
   collection: BillsApp.Collections.Bills,

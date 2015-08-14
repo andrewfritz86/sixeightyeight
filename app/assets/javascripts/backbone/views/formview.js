@@ -1,4 +1,4 @@
-// var BillsApp = BillsApp || { Models: {}, Views: {}, Collections: {} };
+var BillsApp = BillsApp || { Models: {}, Views: {}, Collections: {} };
 
   BillsApp.Views.FormView = Backbone.View.extend({
   events: {
@@ -15,7 +15,7 @@
         shamy_debt: $("#shamy-owes").val()
       }
       $('#billform').trigger("reset");
-      var newModel = new Bill(input);
+      var newModel = new BillsApp.Models.Bill(input);
       newModel.save();
       bills.add(newModel);
     }

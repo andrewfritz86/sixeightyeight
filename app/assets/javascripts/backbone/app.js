@@ -1,9 +1,10 @@
 var BillsApp = BillsApp || { Models: {}, Views: {}, Collections: {} };
 
+var bills;
 
 BillsApp.Initialize = function(){
 
-  var bills = new BillsApp.Collections.Bills()
+  bills = new BillsApp.Collections.Bills()
   var billzView = new BillsApp.Views.BillsView({collection: bills})
   var form = new BillsApp.Views.FormView({el: $("#form-container")})
   var promise = bills.fetch()

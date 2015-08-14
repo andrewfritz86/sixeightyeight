@@ -1,4 +1,4 @@
-// var BillsApp = BillsApp || { Models: {}, Views: {}, Collections: {} };
+var BillsApp = BillsApp || { Models: {}, Views: {}, Collections: {} };
 
   BillsApp.Views.LinkView = Backbone.View.extend({
 
