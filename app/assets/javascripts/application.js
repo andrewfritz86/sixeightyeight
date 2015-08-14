@@ -16,7 +16,13 @@
 //= require animateDrop
 //= require jquery_ujs
 //= require turbolinks
-//= require mustache
-//= require underscore
-//= require backbone
-//= require app
+//= require ./vendor/mustache
+//= require ./vendor/underscore
+//= require ./vendor/backbone
+//= require ./backbone/app
+//= require ./backbone/models/bill
+//= require ./backbone/collections/bills
+//= require ./backbone/views/formview
+//= require ./backbone/views/linkview
+//= require ./backbone/views/billview
+//= require ./backbone/views/billsview
